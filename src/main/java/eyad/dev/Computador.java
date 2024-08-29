@@ -1,79 +1,57 @@
 package eyad.dev;
 
-
 public class Computador {
-    private String marca;
-    private int memoria;
-    private String caracteristicasDelProcesador;
-    private String sistemaOperativo;
-    private double precio;
+    private String brand;
+    private int memory;
+    private String processor;
+    private String operatingSystem;
+    private double price;
 
-    
-    public Computador(String marca, int memoria, String caracteristicasDelProcesador, String sistemaOperativo,
-            double precio) {
-        this.marca = marca;
-        this.memoria = memoria;
-        this.caracteristicasDelProcesador = caracteristicasDelProcesador;
-        this.sistemaOperativo = sistemaOperativo;
-        this.precio = precio;
+    public Computador(String brand, int memory, String processor, String operatingSystem, double price) {
+        this.brand = brand;
+        this.memory = memory;
+        this.processor = processor;
+        this.operatingSystem = operatingSystem;
+        this.price = price;
     }
 
-
-    public String getMarca() {
-        return marca;
+    public String getBrand() {
+        return brand;
     }
 
-
-    public void setMarca(String marca) {
-        this.marca = marca;
+    public void setBrand(String brand) {
+        this.brand = brand;
     }
 
-
-    public int getMemoria() {
-        return memoria;
+    public int getMemory() {
+        return memory;
     }
 
-
-    public void setMemoria(int memoria) {
-        this.memoria = memoria;
+    public void setMemory(int memory) {
+        this.memory = memory;
     }
 
-
-    public String getcaracteristicasDelProcesador() {
-        return caracteristicasDelProcesador;
+    public String getProcessor() {
+        return processor;
     }
 
-
-    public void setcaracteristicasDelProcesador(String caracteristicasDelProcesador) {
-        this.caracteristicasDelProcesador = caracteristicasDelProcesador;
+    public void setProcessor(String processor) {
+        this.processor = processor;
     }
 
-
-    public String getSistemaOperativo() {
-        return sistemaOperativo;
+    public String getOperatingSystem() {
+        return operatingSystem;
     }
 
-
-    public void setSistemaOperativo(String sistemaOperativo) {
-        this.sistemaOperativo = sistemaOperativo;
+    public void setOperatingSystem(String operatingSystem) {
+        this.operatingSystem = operatingSystem;
     }
 
-
-    public double getPrecio() {
-        return precio;
+    public double getPrice() {
+        return price;
     }
 
-
-    public void setPrecio(double precio) {
-        this.precio = precio;
+    public void setPrice(double price) {
+        this.price = price;
     }
-
-
-    @Override
-    public String toString() {
-        return "Marca: " + marca + ", Memoria: " + memoria + " GB, Procesador: " + caracteristicasDelProcesador +
-               ", Sistema Operativo: " + sistemaOperativo + ", Precio: $" + precio;
-    }
-
-    
 }

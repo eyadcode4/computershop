@@ -1,59 +1,70 @@
 package eyad.dev;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.*;
-
 
 public class ComputadorTest {
+    private Computador computer;
 
-
-    @Test
-    public void testConstructor() {
-        Computador computador = new Computador("Apple", 16, "Intel i7", "Os 10", 2000);
-
-
-        assertEquals("Apple", computador.getMarca());
-        assertEquals(16, computador.getMemoria());
-        assertEquals("Intel i7", computador.getCaracteristicasProcesador());
-        assertEquals("Os 10", computador.getSistemaOperativo());
-        assertEquals(2000.00, computador.getPrecio());
+    @BeforeEach
+    void setUp() {
+        computer = new Computador("HP", 16, "i7", "W10", 1200.00);
     }
 
-
     @Test
-    public void testSettersAndGetters() {
-        Computador computador = new Computador("acer", 16, "Intel i7", "Windows 10", 1250.00);
-
-
-        computador.setMarca("HP");
-        assertEquals("HP", computador.getMarca());
-
-
-        computador.setMemoria(16);
-        assertEquals(16, computador.getMemoria());
-
-
-        computador.setCaracteristicasProcesador("Intel i7");
-        assertEquals("Intel i7", computador.getCaracteristicasProcesador());
-
-
-        computador.setSistemaOperativo("Windows 12");
-        assertEquals("Windows 12", computador.getSistemaOperativo());
-
-
-        computador.setPrecio(1250.00);
-        assertEquals(1250.00, computador.getPrecio());
+    void testGetBrand() {
+        assertEquals("HP", computer.getBrand());
     }
 
+    @Test
+    void testSetBrand() {
+        computer.setBrand("Dell");
+        assertEquals("Dell", computer.getBrand());
+    }
 
     @Test
-    public void testToString() {
-        Computador computador = new Computador("Lenovo", 16, "i9", "Window12", 1900);
-
-
-        String expected = "Marca: Lenovo, Memoria: 16 GB, Procesador: i9, Sistema Operativo: Window12, Precio: $1900.0";
-        assertEquals(expected, computador.toString());
+    void testGetMemory() {
+        assertEquals(16, computer.getMemory());
     }
-   
+
+    @Test
+    void testSetMemory() {
+        computer.setMemory(8);
+        assertEquals(8, computer.getMemory());
+    }
+
+    @Test
+    void testGetProcessor() {
+        assertEquals("i7", computer.getProcessor());
+    }
+
+    @Test
+    void testSetProcessor() {
+        computer.setProcessor("i5");
+        assertEquals("i5", computer.getProcessor());
+    }
+
+    @Test
+    void testGetOperationSystem() {
+        assertEquals("W10", computer.getOperatingSystem());
+    }
+
+    @Test
+    void testSetOperationSystem() {
+        computer.setOperatingSystem("OS");
+        assertEquals("OS", computer.getOperatingSystem());
+    }
+
+    @Test
+    void testGetPrince() {
+        assertEquals(1200.00, computer.getPrice());
+    }
+
+    @Test
+    void testSetPrice() {
+        computer.setPrice(1250.00);
+        assertEquals(1250.00, computer.getPrice());
+    }
 }

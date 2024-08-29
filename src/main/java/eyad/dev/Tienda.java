@@ -1,59 +1,69 @@
 package eyad.dev;
 
 import java.util.ArrayList;
-
-import java.util.Iterator;
+import java.util.List;
 
 public class Tienda {
+    private String name;
+    private String owner;
+    private String storeTaxId;
+    private List<Computador> computers;
 
-    private String nombre;
-    private String propietario;
-    private String identificadorTributario;
-    private ArrayList<Computador> computadores;
-
-    public Tienda(String nombre, String propietario, String identificadorTributario) {
-        this.nombre = nombre;
-        this.propietario = propietario;
-        this.identificadorTributario = identificadorTributario;
-        this.computadores = new ArrayList<>();
+    public String getName() {
+        return name;
     }
 
-    public void agregarUnComputador(Computador computador) {
-        computadores.add(computador);
-        System.out.println("Agregado Computador: " + computador.getMarca()+" a la tienda");
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public void eliminarUnComputador(String marca) {
-        Iterator<Computador> iterator = computadores.iterator();
-        while (iterator.hasNext()) {
-            Computador computador = iterator.next();
-            if (computador.getMarca().equalsIgnoreCase(marca)) {
-                iterator.remove();
-                System.out.println("Computador eliminado: " + marca);
-                return;
-            }
-        }
-        System.out.println("No se encuentra el computador con la marca " + marca );
+    public String getOwner() {
+        return owner;
     }
 
-    public Computador buscarUnComputador(String marca) {
-        for (Computador computador : computadores) {
-            if (computador.getMarca().equalsIgnoreCase(marca)) {
-                return computador;
-            }
-        }
-        return null;
+    public void setOwner(String owner) {
+        this.owner = owner;
     }
 
-    public void listarInfoTodosComputadores() {
-        if (computadores.isEmpty()) {
-            System.out.println("No hay ningun computador en la tienda.");
-        } else {
-            System.out.println("Lista de computadores en la tienda:");
-            for (Computador computador : computadores) {
-                System.out.println(computador);
-            }
-        }
+    public String getStoreTaxId() {
+        return storeTaxId;
     }
 
+    public void setStoreTaxId(String storeTaxId) {
+        this.storeTaxId = storeTaxId;
+    }
+
+    public List<Computador> getComputers() {
+        return computers;
+    }
+
+    public void setComputers(List<Computador> computers) {
+        this.computers = computers;
+    }
+
+    public Tienda(String name, String owner, String storeTaxId, List<Computador> computers) {
+        this.name = name;
+        this.owner = owner;
+        this.storeTaxId = storeTaxId;
+        this.computers = new ArrayList<>(computers);
+    }
+
+    public void addComputer(Computador computer) {
+        computers.add(computer);
+    }
+
+    public boolean removeComputer(String brand) {
+        return computers.removeIf(c -> c.getBrand().equalsIgnoreCase(brand));
+    }
+
+    public Computador findComputer(String brand) {
+        return computers.stream()
+                .filter(c -> c.getBrand().equalsIgnoreCase(brand))
+                .findFirst()
+                .orElse(null);
+    }
+
+    public List<Computador> listComputers() {
+        return new ArrayList<>(computers);
+    }
 }
